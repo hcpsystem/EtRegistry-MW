@@ -3,8 +3,9 @@
 namespace AppBundle\Controller;
 use AppBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/user")
@@ -16,7 +17,8 @@ class UserController extends Controller
      */
     public function indexAction(Request $request)
     {
-        return 0;
+        $r = ['status' => 0];
+        return $this->json($r);
     }
 
     /**
@@ -25,7 +27,8 @@ class UserController extends Controller
      */
     public function createAction(Request $request)
     {
-        return 1;
+        $r = ['status' => 1];
+        return $this->json($r);
     }
 
     /**
@@ -34,7 +37,8 @@ class UserController extends Controller
      */
     public function updateAction(Request $request)
     {
-        return 2;
+        $r = ['status' => 2];
+        return $this->json($r);
     }
 
     /**
@@ -43,6 +47,7 @@ class UserController extends Controller
      */
     public function deleteAction(Request $request)
     {
-        return 3;
+        $r = ['status' => 3];
+        return $this->json($r);
     }
 }
