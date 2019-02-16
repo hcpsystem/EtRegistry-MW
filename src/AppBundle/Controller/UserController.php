@@ -17,7 +17,14 @@ class UserController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $r = ['status' => 0];
+        $em = $this->getDoctrine()->getManager();
+        $usuario = $em->getRepository(User::class)->findAll();
+        $r = [];
+        foreach ($usuario as $u) {
+            $r[] = ['nombre' => $u->getNomuser()];
+        }
+
+        // $r = ['status' => 0];
         return $this->json($r);
     }
 
