@@ -21,7 +21,8 @@ class UserController extends Controller
         $usuario = $em->getRepository(User::class)->findAll();
         $r = [];
         foreach ($usuario as $u) {
-            $r[] = ['nombre' => $u->getNomuser()];
+            $r[] = ['nomuser' => $u->getNomuser(),
+                    'nombre' => $u->getNombre()];
         }
 
         // $r = ['status' => 0];
@@ -38,8 +39,8 @@ class UserController extends Controller
         $em = $this->getDoctrine()->getManager();
         
         $user = new User();
-        $user->setNombre("Hola");
-        $user->setApellidos("Hola");
+        $user->setNombre("Hola 2");
+        $user->setApellidos("Hola 2");
         $em->persist($user);
         $em->flush();   
         return $this->json($r);
