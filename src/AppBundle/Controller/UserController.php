@@ -38,8 +38,8 @@ class UserController extends Controller
         $em = $this->getDoctrine()->getManager();
         
         $user = new User();
-        $user->setNombre('Hola');
-        $user->setApellidos('Hola');
+        $user->setNombre("Hola");
+        $user->setApellidos("Hola");
         $em->persist($user);
         $em->flush();   
         return $this->json($r);
