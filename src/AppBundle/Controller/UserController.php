@@ -38,9 +38,13 @@ class UserController extends Controller
         $r = ['status' => 1];
         $em = $this->getDoctrine()->getManager();
         
+        $content = $request->getContent();
+        $post = json_decode($content ,true);
+        $nombre = $post['nombre'];
+        $apellidos = $post['apellidos'];
         $user = new User();
-        $user->setNombre("Hola 2");
-        $user->setApellidos("Hola 2");
+        $user->setNombre($nombre);
+        $user->setApellidos($apellidos);
         $em->persist($user);
         $em->flush();   
         return $this->json($r);
